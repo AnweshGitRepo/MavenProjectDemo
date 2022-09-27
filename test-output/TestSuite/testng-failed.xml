@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" parallel="methods" name="Failed suite [TestSuite]">
+  <test parallel="methods" name="testGuru(failed)">
+    <classes>
+      <class name="simpleSeleniumProject.LaunchBrowser">
+        <methods>
+          <include name="FirefoxTest"/>
+          <include name="ChromeTest"/>
+        </methods>
+      </class> <!-- simpleSeleniumProject.LaunchBrowser -->
+    </classes>
+  </test> <!-- testGuru(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->
