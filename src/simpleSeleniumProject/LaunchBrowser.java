@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -31,36 +32,29 @@ import com.gargoylesoftware.htmlunit.javascript.host.media.webkitMediaStream;
 
 public class LaunchBrowser {
   public static void main(String[] args) throws IOException  {
-	  System.setProperty("webdriver.chrome.driver","D:\\EclipseWoksapce\\seleniumProject\\ChromeDriver_104.0.5112.79.exe");
-	  WebDriver driver=new ChromeDriver();
-	  driver.get("https://www.w3schools.com/html/html_links.asp");
-	    driver.manage().window().maximize();
-	  
-	List<WebElement> ele= driver.findElements(By.tagName("a"));
-	  
-	  for(int i=0;i<=ele.size();i++) {
+	 System.setProperty("webdriver.chrome.driver","D:\\EclipseWoksapce\\seleniumProject\\ChromeDriver_105.0.5195.52.exe");
+	 WebDriver driver=new ChromeDriver();
+	 driver.get("https://www.amazon.in//");
+	 driver.manage().window().maximize();	
+	 
+ 
+	 // WebDriver driver = new HtmlUnitDriver();
+      
+	     // Navigate to Google		
+      driver.get("http://www.google.com");					
 
-	
-		String ss=  ele.get(i).getText();
-		if (ele.get(i).getText().contains("Play Game")) {
-			ele.get(i).click();
-		}
-	//	File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File screenshotBase64 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		
-		FileUtils.copyFile(screenshotBase64, new File("D:\\abc.png"));
-		
-		
-		
-		
-		System.out.println(ss);	 
-	  }
-		
-	  
-	  
- 
- 
- 
+		 // Locate the searchbox using its name		
+      WebElement element = driver.findElement(By.name("q"));	
+      
+     // Enter a search query		
+     element.sendKeys("Guru99");	
+    
+     // Submit the query. Webdriver searches for the form using the text input element automatically		
+     // No need to locate/find the submit button		
+     element.submit();			
+     
+		// This code will print the page title		
+     System.out.println("Page title is: " + driver.getTitle());
   }
-  }
- 
+  
+}
